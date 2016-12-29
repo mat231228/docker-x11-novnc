@@ -30,7 +30,7 @@ RUN \
   xvfb \
   x11vnc \
   supervisor \
-  fluxbox \
+  ratpoison \
   wget \
   ca-certificates \
   python \
@@ -41,12 +41,14 @@ RUN \
 # Download and install noVNC.
 RUN \
  mkdir -p /opt/noVNC/utils/websockify \
- && wget -qO- "http://github.com/kanaka/noVNC/tarball/master" \
+ && wget -qO- "https://github.com/kanaka/noVNC/tarball/master" \
     | tar -zx --strip-components=1 -C /opt/noVNC \
  && wget -qO- "https://github.com/kanaka/websockify/tarball/master" \
     | tar -zx --strip-components=1 -C /opt/noVNC/utils/websockify \
  && ln -s /opt/noVNC/vnc.html /opt/noVNC/index.html
 
+
+RUN useradd -d /home/gui -p "!" -m -c "Docker-GUI" gui
 
 # Configure & run supervisor
 COPY novnc.conf /etc/supervisor/conf.d/novnc.conf
