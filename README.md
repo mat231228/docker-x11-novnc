@@ -1,5 +1,5 @@
 # x11-novnc
-A dockerfile to run X11 through the browser with noVNC
+A dockerfile to run X11 through the browser with noVNC.
+Use this as a base to run a single graphical program.
 
-Inspired by
-https://github.com/codenvy/dockerfiles/tree/master/x11_vnc 
+Forked from https://github.com/toastie89/x11-novnc
